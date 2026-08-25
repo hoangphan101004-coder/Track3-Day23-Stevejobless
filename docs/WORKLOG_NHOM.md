@@ -3,26 +3,19 @@
 ## 1. Thông tin chung
 
 - Tên bài: Day 23 — Track 3 — LangGraph Agentic Orchestration
-- Tên nhóm: ______________________________________________
-- Lớp/nhóm học phần: _____________________________________
-- Repository: _____________________________________________
-- Nhánh làm việc: _________________________________________
-- Thời gian bắt đầu: ______________________________________
-- Thời gian hoàn thành: ___________________________________
+- Tên nhóm: Steve Jobless
+
 
 ### Thành viên 1
 
-- Họ và tên: ______________________________________________
-- Mã sinh viên: ___________________________________________
-- Email: __________________________________________________
-- GitHub: __________________________________________________
+- Họ và tên:Phan Huy Hoang
+- Mã sinh viên: 2A202601990
 
 ### Thành viên 2
 
-- Họ và tên: ______________________________________________
-- Mã sinh viên: ___________________________________________
-- Email: __________________________________________________
-- GitHub: __________________________________________________
+- Họ và tên: Trần An Thắng
+- Mã sinh viên: 2A202601756
+
 
 ## 2. Nguyên tắc phối hợp
 
@@ -60,13 +53,7 @@ Vai trò chính: **State, LLM và node behavior**
 - [ ] Viết hoặc bổ sung test cho node behavior, approval boundary và dead-letter boundary.
 - [ ] Review chéo routing, graph wiring và persistence do thành viên 2 thực hiện.
 
-Đầu ra/evidence của thành viên 1:
 
-- Commit/link: _____________________________________________
-- Test command: ____________________________________________
-- Test result: _____________________________________________
-- Evidence khác: ___________________________________________
-- Vấn đề hoặc giới hạn còn lại: _____________________________
 
 ## 4. Phân công thành viên 2
 
@@ -98,94 +85,5 @@ Vai trò chính: **Routing, graph, persistence, metrics và báo cáo**
 - [ ] Xuất Mermaid graph tại `outputs/graph.mmd`.
 - [ ] Review chéo state, LLM integration và node behavior do thành viên 1 thực hiện.
 
-Đầu ra/evidence của thành viên 2:
 
-- Commit/link: _____________________________________________
-- Test command: ____________________________________________
-- Test result: _____________________________________________
-- Evidence khác: ___________________________________________
-- Vấn đề hoặc giới hạn còn lại: _____________________________
 
-## 5. Nhật ký làm việc
-
-Sao chép khối dưới đây cho mỗi phiên làm việc.
-
-### Phiên làm việc số: ______
-
-- Ngày: ____________________________________________________
-- Thời gian bắt đầu: _______________________________________
-- Thời gian kết thúc: ______________________________________
-- Người thực hiện: _________________________________________
-- Hạng mục thực hiện: ______________________________________
-- File đã thay đổi: ________________________________________
-- Nội dung đã hoàn thành: __________________________________
-- Lệnh kiểm tra đã chạy: ___________________________________
-- Kết quả kiểm tra: ________________________________________
-- Commit/PR/link evidence: __________________________________
-- Vấn đề gặp phải: _________________________________________
-- Cách xử lý: ______________________________________________
-- Công việc tiếp theo: _____________________________________
-
-## 6. Checkpoint review chéo
-
-### Review của thành viên 1 cho phần thành viên 2
-
-- Ngày review: _____________________________________________
-- Phạm vi review: __________________________________________
-- Kết quả: _________________________________________________
-- Lỗi hoặc góp ý: __________________________________________
-- Trạng thái xử lý góp ý: __________________________________
-- Link commit/evidence sau sửa: _____________________________
-
-### Review của thành viên 2 cho phần thành viên 1
-
-- Ngày review: _____________________________________________
-- Phạm vi review: __________________________________________
-- Kết quả: _________________________________________________
-- Lỗi hoặc góp ý: __________________________________________
-- Trạng thái xử lý góp ý: __________________________________
-- Link commit/evidence sau sửa: _____________________________
-
-## 7. Gate cuối của cả nhóm
-
-- [ ] `python -m ruff check src tests` pass.
-- [ ] `python -m mypy src` pass.
-- [ ] `python -m pytest -q` pass và không còn E2E test bị skip khi API key đã cấu hình.
-- [ ] Chạy đủ 7 sample scenarios bằng implementation tổng quát.
-- [ ] `outputs/metrics.json` validation pass.
-- [ ] Retry hữu hạn và S07 đi vào dead-letter đúng boundary.
-- [ ] Approved action chỉ chạy tool sau approval.
-- [ ] Rejected action đi clarification và không gọi tool.
-- [ ] Mọi route có terminal event `finalize`.
-- [ ] Persistence evidence gắn đúng thread ID.
-- [ ] Báo cáo khớp với metrics và evidence mới nhất.
-- [ ] Có ít nhất hai failure mode trong báo cáo.
-- [ ] Không có secret hoặc hidden grading data trong bài nộp.
-- [ ] `git diff --check` pass.
-
-Kết quả gate cuối:
-
-- Ngày chạy: _______________________________________________
-- Người chạy: ______________________________________________
-- Tổng số test pass: _______________________________________
-- Scenario success rate: ___________________________________
-- Metrics validation: ______________________________________
-- Lint/typecheck: ___________________________________________
-- Commit cuối: _____________________________________________
-- Link bài nộp: ____________________________________________
-
-## 8. Xác nhận đóng góp
-
-### Thành viên 1
-
-- Tôi xác nhận phần đóng góp và evidence nêu trên là chính xác.
-- Họ tên: __________________________________________________
-- Ngày xác nhận: ___________________________________________
-- Chữ ký/xác nhận điện tử: _________________________________
-
-### Thành viên 2
-
-- Tôi xác nhận phần đóng góp và evidence nêu trên là chính xác.
-- Họ tên: __________________________________________________
-- Ngày xác nhận: ___________________________________________
-- Chữ ký/xác nhận điện tử: _________________________________

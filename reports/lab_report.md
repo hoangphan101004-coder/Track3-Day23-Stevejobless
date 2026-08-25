@@ -63,13 +63,13 @@ flowchart LR
 
 | Scenario | Expected | Actual | Result | Retries | Approval visits | Latency (ms) |
 |---|---|---|---:|---:|---:|---:|
-| S01_simple | simple | simple | PASS | 0 | 0 | 4097 |
-| S02_tool | tool | tool | PASS | 0 | 0 | 2981 |
-| S03_missing | missing_info | missing_info | PASS | 0 | 0 | 801 |
-| S04_risky | risky | risky | PASS | 0 | 1 | 2956 |
-| S05_error | error | error | PASS | 2 | 0 | 4170 |
-| S06_delete | risky | risky | PASS | 0 | 1 | 2780 |
-| S07_dead_letter | error | error | PASS | 1 | 0 | 831 |
+| S01_simple | simple | simple | PASS | 0 | 0 | 4364 |
+| S02_tool | tool | tool | PASS | 0 | 0 | 2820 |
+| S03_missing | missing_info | missing_info | PASS | 0 | 0 | 945 |
+| S04_risky | risky | risky | PASS | 0 | 1 | 3439 |
+| S05_error | error | error | PASS | 2 | 0 | 4615 |
+| S06_delete | risky | risky | PASS | 0 | 1 | 3547 |
+| S07_dead_letter | error | error | PASS | 1 | 0 | 719 |
 
 ## 5. Failure analysis
 
