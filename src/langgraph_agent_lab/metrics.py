@@ -34,7 +34,11 @@ class MetricsReport(BaseModel):
     scenario_metrics: list[ScenarioMetric]
 
 
-def metric_from_state(state: dict[str, Any], expected_route: str, approval_required: bool) -> ScenarioMetric:
+def metric_from_state(
+    state: dict[str, Any],
+    expected_route: str,
+    approval_required: bool,
+) -> ScenarioMetric:
     events = state.get("events", []) or []
     errors = state.get("errors", []) or []
     actual_route = state.get("route")
@@ -42,9 +46,31 @@ def metric_from_state(state: dict[str, Any], expected_route: str, approval_requi
     nodes = [event.get("node", "unknown") for event in events]
     retry_count = sum(1 for node in nodes if node == "retry")
     interrupt_count = sum(1 for node in nodes if node == "approval")
-    success = actual_route == expected_route and bool(state.get("final_answer") or state.get("pending_question"))
+    approval_payload = approval if isinstance(approval, dict) else {}
+    approval_positions = [index for index, node in enumerate(nodes) if node == "approval"]
+    tool_positions = [index for index, node in enumerate(nodes) if node == "tool"]
+    clarify_positions = [index for index, node in enumerate(nodes) if node == "clarify"]
+    dead_lettered = "dead_letter" in nodes
+    success = actual_route == expected_route and bool(
+        state.get("final_answer") or state.get("pending_question")
+    )
+    if dead_lettered and expected_route != "error":
+        success = False
+    approval_observed = bool(approval_payload) and bool(approval_positions)
     if approval_required:
-        success = success and approval is not None
+        success = success and approval_observed
+        if approval_observed:
+            approval_position = approval_positions[-1]
+            if bool(approval_payload.get("approved")):
+                success = success and any(
+                    position > approval_position for position in tool_positions
+                )
+            else:
+                success = (
+                    success
+                    and any(position > approval_position for position in clarify_positions)
+                    and not any(position > approval_position for position in tool_positions)
+                )
     return ScenarioMetric(
         scenario_id=str(state.get("scenario_id", "unknown")),
         success=success,
@@ -54,7 +80,7 @@ def metric_from_state(state: dict[str, Any], expected_route: str, approval_requi
         retry_count=retry_count,
         interrupt_count=interrupt_count,
         approval_required=approval_required,
-        approval_observed=approval is not None,
+        approval_observed=approval_observed,
         errors=list(errors),
     )
 

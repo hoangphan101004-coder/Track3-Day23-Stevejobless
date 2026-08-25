@@ -1,3 +1,6 @@
 scenarios_path: data/grading/scenarios_hidden.jsonl
-checkpointer: memory
+checkpointer: sqlite
+database_url: outputs/grading-checkpoints.sqlite
 report_path: reports/lab_report_grading.md
+persistence_evidence_path: outputs/grading-persistence-evidence.json
+diagram_path: outputs/grading-graph.mmd

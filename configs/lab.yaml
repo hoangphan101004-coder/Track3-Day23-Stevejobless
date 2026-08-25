@@ -1,3 +1,6 @@
 scenarios_path: data/sample/scenarios.jsonl
-checkpointer: memory
+checkpointer: sqlite
+database_url: outputs/checkpoints.sqlite
 report_path: reports/lab_report.md
+persistence_evidence_path: outputs/persistence_evidence.json
+diagram_path: outputs/graph.mmd
